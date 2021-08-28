@@ -28,15 +28,23 @@ module.exports.login = async (req, res) => {
             status: 204
         });
     } else {
-        console.log();
+        
     };
     try {
         const comparePassword = await bcrypt.compare(loginValidate.password, oneUser.password);
+        if(!comparePassword){
+            return res.status(204)
+            .json({
+                message: 'username or password is wrong',
+                status: 204
+            });
+        }else{
+            
+        }
         const tokenpayload = {
             id: oneUser._id
         };
         const generatingToken = await tokenlib.createToken(tokenpayload);
-        console.log(generatingToken, "LLLLLLL");
         const userData = {
             token: generatingToken,
             name: oneUser.Name,

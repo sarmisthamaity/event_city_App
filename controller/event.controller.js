@@ -15,21 +15,21 @@ module.exports.createEvent = async (req, res) => {
             .string()
             .required(),
         city: Joi
-        .string()
-        .required()
+            .string()
+            .required()
     });
-    const {eventName, description, startDate, endDate,city} = req.body;
+    const { eventName, description, startDate, endDate, city } = req.body;
     let eventValidate = eventSchema.validate(req.body);
-    if(eventValidate.error){
+    if (eventValidate.error) {
         return res.status(400)
-        .send({
-            message: eventValidate.error,
-            status: 400
-        });
+            .send({
+                message: eventValidate.error,
+                status: 400
+            });
     } else {
         eventValidate = eventValidate.value;
     };
-    try{
+    try {
         const data = {
             eventName: eventName,
             description: description,
@@ -38,19 +38,18 @@ module.exports.createEvent = async (req, res) => {
             city: city
         };
         const createEventData = await eventModule.create(data);
-        console.log(createEventData, "KKKKKKK");
         return res.status(200)
-        .send({
-            message: createEventData,
-            status: 200
-        });
+            .send({
+                message: createEventData,
+                status: 200
+            });
 
     } catch (err) {
         console.log(err);
         return res.status(500)
-        .send({
-            message: 'internal serevr error' || err.message,
-            status: 500
-        });
+            .send({
+                message: 'internal serevr error' || err.message,
+                status: 500
+            });
     };
 };

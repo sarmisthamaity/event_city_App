@@ -17,7 +17,6 @@ module.exports = async (req, res, next) => {
             token = req.headers.authorization
         };
         const decoded = await Jwt.verify(token, process.env.SERECT_KEY);
-        console.log(decoded);
         req.tokenData = decoded;
         next();
     } catch (err) {
