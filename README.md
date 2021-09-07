@@ -15,10 +15,10 @@
 - Fetch all users and corresponding events (only admin)(With auth token) 
 - Fetch all events by the user (With auth token) 
 
-## For creating server I used here express
-### for running server run this command - http://localhost:portnumber / npm start
-### for api testing used mocha and chai,
-### for test the api run this - npm test
+- For creating server I used here express
+- for running server run this command - http://localhost:portnumber / npm start
+- for api testing used mocha and chai,
+- for test the api run this - npm test
 
 ## In this project I have used:
 ### signup
