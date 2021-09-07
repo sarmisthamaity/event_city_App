@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const signUpRoute = require('./signup.route');
-const loginRoute = require('./login.route');
+const userRoute = require('./user.route');
 const eventRoute = require('./event.routes');
 const dataRoute = require('./get.route');
+const eventGetRout = require('./getevent.route');
 
-router.use('/signup', signUpRoute);
-router.use('/login', loginRoute);
-router.use('/event', eventRoute);
-router.use('/dataget', dataRoute);
+router.use('/', userRoute);
+router.use('/', eventRoute);
+router.use('/', dataRoute);
+router.use('/', eventGetRout);
 
 module.exports = router;

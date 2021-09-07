@@ -1,4 +1,4 @@
-module.exports.signUpController = require('./signup.controller.js');
-module.exports.loginController = require('./login.controller');
+module.exports.userController = require('./user.controller.js');
 module.exports.eventController = require('./event.controller');
+module.exports.getEventController = require('./eventget.controller');
 module.exports.getdataController = require('./getdata.controller');
